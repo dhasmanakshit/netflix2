@@ -1,0 +1,22 @@
+! - netflix clone
+
+we’ll use create react app cmd
+>>> npx  create-react-app  ur-desired-name
+this cmd uses webpack as bundler instead of parcel
+it’ll also have react libs already
+package.josn already has some script (which were used as shortcuts for cmds)
+
+in VS code terminal do
+>>> npm run start OR npm start
+both will just run the cmd that is in 'start' keyword in package.json
+
+we'll use tailwind css
+goto to their site > getstarted > framework > create-react-app
+
+
+if you get some [library: 'digital envelope routines']
+try install react-dom
+>>> npm install react react-dom
+
+now we can see our app
+>>> npm start
