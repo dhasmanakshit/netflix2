@@ -20,3 +20,40 @@ try install react-dom
 
 now we can see our app
 >>> npm start
+
+
+what pages will we have:
+- Login (before auth)
+- browse (after auth)
+    - header
+        - home
+        - movies
+        - tv shows
+        - my list
+        - browse by lang.
+    - 1 movie trailer
+        - video in background
+        - title over video
+        - descr
+        - play button
+    - recommendations
+        - various categories sections
+            - movies list in caraousel
+
+
+lets start building comp. in 'components' folder
+
+'rafce' shortcut generates a boilerplate code
+react_arraow_function_comp_export
+works in JS, JSX file
+
+we'll do routing such that 
+"../" will goto login page
+"../browser" will goto browser page
+
+>>> npm i -D react-router-dom
+then inside Body comp's callback func
+const approuter = createBrowserRouter([])
+
+now Body.jsx comp would just return 'RouterProvider' with router value as our approuter
+
