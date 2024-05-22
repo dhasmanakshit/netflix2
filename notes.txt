@@ -93,3 +93,28 @@ go thru docs online: firebase > webapp > authentication > password
 we use getAuth() to execute all firebase API, so we'll put it somewhere in common file 'firebase.js'
 we can call getAuth() anywhere in our app, we just choose not to call it again&again
 
+-------
+? to deplo CHANGES
+
+npm run build
+firebase deploy
+
+
+--- 
+now after signin we'll open browse page
+so we'll store authenticated 'user' object in redux 
+
+>>> npm i -D @reduxjs/toolkit
+>>> npm i react-redux
+
+then we'll create appStore.js, slice for user redux
+& wrap <body> in file_app.js inside <provider>
+
+when to add user in redux? when there is any change in auth_state
+firebase gives an Api for that 
+we'll copy&paste this api where we are doing the routing (although we can write it anywhere)
+::online documentation under firebase > auth > web > managew users
+
+onAuthStateChanged() is like an event-listener
+so we wanna exe it only once using using useEffect()
+ 
