@@ -57,3 +57,39 @@ const approuter = createBrowserRouter([])
 
 now Body.jsx comp would just return 'RouterProvider' with router value as our approuter
 
+const email = useRef(null)  // kinda works as document.getElement()
+mention ref={email} on input tag
+now 'email' will always have input_html_element reference
+now 'email.current.value' will have whatever user entered in that input
+
+! firebase:
+goto https://console.firebase.google.com/
+create proj
+to host our app in firebase server: 
+select web-app
+do all the steps mentioned to deploy
+: fyi (when asked use these answers)
+What do you want to use as your public directory? build
+Configure as a single-page app (rewrite all urls to /index.html)? N
+
+then do >>> npm run build  // CRA will run some scripts & generate our prod_ready_app in build folder
+then >>> firebase deploy  // firebase gives us a live url 
+
+url for this project:
+https://netflix2-9f9c5.web.app/
+
+we are using firebase for authentication
+for to site select proj, select auth in build menu
+add ur logins (email,facebook,google)
+add users who can login
+
+
+----------------
+
+now using firebase lib to sign-up/sign-in users
+go thru docs online: firebase > webapp > authentication > password
+(youll find sign-in/sig-up function there)
+
+we use getAuth() to execute all firebase API, so we'll put it somewhere in common file 'firebase.js'
+we can call getAuth() anywhere in our app, we just choose not to call it again&again
+
