@@ -1,21 +1,43 @@
-import { signOut } from "firebase/auth";
-import React from "react";
-import { auth } from "../utils/firebase";
+import React, { useEffect } from "react";
+// to navigate to diff url from app_code
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+// for auth
+import { auth } from "../utils/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+// for access to redux's slice's reducer fucntion
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   // reading user obj from redux, by subscribing
   const user = useSelector((store) => store.user);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      console.log("auth stated changed", user);
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const { uid, email, displayName } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        navigate("/browser");
+      } else {
+        // User is signed out
+        // ...
+        dispatch(removeUser(user));
+        navigate("/");
+      }
+    });
+  }, []);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
         console.log("signed out, check in redux tool in browser");
-        navigate("/");
-        // user_remove will done on_auth_change() in <Body/>
+        // user_remove will done on_auth_change() in <Header/>
       })
       .catch((error) => {
         // An error happened.

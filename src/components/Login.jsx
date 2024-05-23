@@ -7,10 +7,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate();
   // for ref to input element
   const email = useRef(null);
   const pswrd = useRef(null);
@@ -65,8 +63,6 @@ const Login = () => {
             set_err_msg(errorCode + " : " + errorMessage);
           });
       }
-
-      navigate("browser");
     }
   };
 

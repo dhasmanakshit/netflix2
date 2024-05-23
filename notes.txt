@@ -118,3 +118,8 @@ we'll copy&paste this api where we are doing the routing (although we can write 
 onAuthStateChanged() is like an event-listener
 so we wanna exe it only once using using useEffect()
  
+
+ENFORCING LOG-IN to open browse page:
+now if the user is signed-in it should just show browse page
+& if signed-out it should just show login page
+:: so we'll move onAuthChange() to header{cuz its always there} & navigate from that function only
