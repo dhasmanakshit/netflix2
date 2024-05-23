@@ -123,3 +123,16 @@ ENFORCING LOG-IN to open browse page:
 now if the user is signed-in it should just show browse page
 & if signed-out it should just show login page
 :: so we'll move onAuthChange() to header{cuz its always there} & navigate from that function only
+
+
+for browse_movies page we'll use TMDB apis
+add the api_header_options in constants file so it can be used everywhere
+& we'll call the api_fetch_data_function in useEffect(,[]) so call happens only once or when refreshed
+on getting response we'll add the movies_array to redux_slice
+
+we can add all this code in custom_hook (just a js func atTheEndOfTheDay)
+custom_hook will jsut be called & store all movies in redux
+
+browse page is divied into [header, trailer, suggestions]
+// now we'll subscribe to redux in browse page
+// & it'll render wheneva redux_movies is updated
