@@ -75,7 +75,7 @@ const Login = () => {
     >
       <Header />
       <form
-        className="bg-black bg-opacity-80 flex flex-col w-4/12 mx-auto p-12 "
+        className="bg-black bg-opacity-80 flex flex-col w-4/12 mx-auto p-12 mt-20"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="text-white">

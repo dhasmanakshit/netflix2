@@ -7,20 +7,27 @@ import Categories from "./Categories";
 
 const Browse = () => {
   // need to add movies in slice & then use it
-  // being called in Cate_NowPlaying.js
-  // useNowPlayingMovies(); // so no need to call again, mob=vies are already in slice
+  // being called in categories.js
+  // useNowPlayingMovies(); // so no need to call again, movies are already in slice
 
   const nowPlayingMovies = useSelector(
     (store) => store.movies.nowPlayingMovies
   );
 
-  // if (!) return;
+  // random number generotor for random trailer
+  const randomNumUnder = () => {
+    return Math.floor(Math.random() * nowPlayingMovies.length);
+  };
 
   return (
-    <div>
+    <div className="bg-black">
       <Header />
       {/* // if there are movies in nowPLaying in slice then render trailer of any random movie*/}
-      {nowPlayingMovies ? <Trailer movie={nowPlayingMovies[7]} /> : ""}
+      {nowPlayingMovies ? (
+        <Trailer movie={nowPlayingMovies[randomNumUnder()]} />
+      ) : (
+        ""
+      )}
       <Categories />
     </div>
   );
