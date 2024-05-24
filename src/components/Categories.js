@@ -19,9 +19,9 @@ const Categories = () => {
 
     return (
         <div className='relative -mt-60'>
-            <MoviesListSlider title={"Now Playing"} movies={movie_whole_redux.nowPlayingMovies} />
-            <MoviesListSlider title={"Top Rated"} movies={movie_whole_redux.topRatedMovies} />
-            <MoviesListSlider title={"Popular TV Shows"} movies={movie_whole_redux.popularTV} />
+            <MoviesListSlider title={"Now Playing"} movies={movie_whole_redux.nowPlayingMovies} areMovies={true} />
+            <MoviesListSlider title={"Top Rated"} movies={movie_whole_redux.topRatedMovies} areMovies={true} />
+            <MoviesListSlider title={"Popular TV Shows"} movies={movie_whole_redux.popularTV} areMovies={false} />
         </div>
     )
 }

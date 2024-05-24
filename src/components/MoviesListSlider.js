@@ -15,7 +15,9 @@ const MoviesListSlider = (props) => {
             <div className='flex overflow-x-scroll overflow-y-hidden scrollbar-hide pr-5'>
                 <div className='flex flex-row'>
                     {
-                        props.movies?.map((mov) => <MovieCard movie={mov} />)
+                        props.areMovies
+                            ? props.movies?.map((mov) => <MovieCard movie={mov} />)
+                            : props.movies?.map((mov) => <TvShowCard movie={mov} />)
                     }
                 </div>
             </div>
