@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { api_header_options } from '../utils/constants'
 
 const Trailer = (props) => {
@@ -26,11 +25,11 @@ const Trailer = (props) => {
 
     return (
         <div className='relative'>
-            <div className='trailer_video w-full'>
-                <iframe src={"https://www.youtube.com/embed/" + trailer?.key + "?autoplay=1&mute=1&controls=0"}
-                    className='w-screen aspect-video' ></iframe>
+            <div className='trailer_video w-full overflow-hidden pointer-events-none'>
+                <iframe src={"https://www.youtube.com/embed/" + trailer?.key + "?autoplay=1&mute=1&controls=0&autohide=1&showinfo=0"}
+                    className='w-screen aspect-video'></iframe>
             </div>
-            <div className='absolute z-1 top-0 pl-10 bg-gradient-to-r from-black w-1/2 h-full flex flex-col justify-end'>
+            <div className='absolute z-1 top-0 pb-32 pl-10 bg-gradient-to-r from-black w-1/2 h-full flex flex-col justify-end'>
                 <h1 className='text-white text-6xl font-bold '>{props.movie.title}</h1>
                 {
                     moreinfo ? <p className='text-gray-300 text-xl font-bold mt-6'>{props.movie.overview}</p> : ""
