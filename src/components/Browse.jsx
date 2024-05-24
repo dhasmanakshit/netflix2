@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import Trailer from "./Trailer";
@@ -14,20 +14,11 @@ const Browse = () => {
     (store) => store.movies.nowPlayingMovies
   );
 
-  // random number generotor for random trailer
-  const randomNumUnder = () => {
-    return Math.floor(Math.random() * nowPlayingMovies.length);
-  };
-
   return (
     <div className="bg-black">
       <Header />
       {/* // if there are movies in nowPLaying in slice then render trailer of any random movie*/}
-      {nowPlayingMovies ? (
-        <Trailer movie={nowPlayingMovies[randomNumUnder()]} />
-      ) : (
-        ""
-      )}
+      {nowPlayingMovies ? <Trailer movie={nowPlayingMovies[7]} /> : ""}
       <Categories />
     </div>
   );

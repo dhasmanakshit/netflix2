@@ -1,5 +1,6 @@
 import React from 'react'
 import MovieCard from './MovieCard'
+import TvShowCard from './TvShowCard'
 
 const MoviesListSlider = (props) => {
     // useNowPlayingMovies();

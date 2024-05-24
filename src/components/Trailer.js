@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { api_header_options } from '../utils/constants'
 
 const Trailer = (props) => {
-    console.log(props.movie.id)// fetch trsiler for this id
+    console.log(props.movie) // fetch trsiler for this id
 
     const [moreinfo, set_moreinfo] = useState(false)
     const [trailer, set_trailer] = useState()
