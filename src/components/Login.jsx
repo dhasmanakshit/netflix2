@@ -22,27 +22,24 @@ const Login = () => {
 
   // to render err_msg (if any)
   const [err_msg, set_err_msg] = useState(null);
-  // validate inputs
+  // validate inputs - LOGIN (re-enter feild wont be there so)
   const validateInput = () => {
-    const res = Validate(
-      email.current.value,
-      pswrd.current.value,
-      re_pswrd.current.value
-    );
+    var res = "def_err_dont_login";
+    already_user === true
+      ? (res = Validate(
+          email.current.value,
+          pswrd.current.value,
+          pswrd.current.value
+        ))
+      : (res = Validate(
+          email.current.value,
+          pswrd.current.value,
+          re_pswrd.current.value
+        ));
 
     set_err_msg(res);
 
-    console.log(
-      email.current.value +
-        " : " +
-        pswrd.current.value +
-        " : " +
-        re_pswrd.current.value +
-        " = " +
-        err_msg
-    );
-
-    if (err_msg === null) {
+    if (res === null) {
       // --- if NO_ERR, proceed to sign-in/sign-up
       if (already_user) {
         // --- sign in

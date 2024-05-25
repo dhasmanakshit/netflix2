@@ -18,7 +18,7 @@ const Browse = () => {
     <div className="bg-black">
       <Header />
       {/* // if there are movies in nowPLaying in slice then render trailer of any random movie*/}
-      {nowPlayingMovies ? <Trailer movie={nowPlayingMovies[7]} /> : ""}
+      {nowPlayingMovies ? <Trailer movie={nowPlayingMovies[0]} /> : ""}
       <Categories />
     </div>
   );

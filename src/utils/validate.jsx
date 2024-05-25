@@ -11,5 +11,7 @@ export const Validate = (email, password, re_password) => {
   // password match or not
   console.log(password, re_password, password === re_password);
 
-  return password === re_password ? null : "Password dont match";
+  if (!(password === re_password)) return "Password dont match";
+
+  return null;
 };
