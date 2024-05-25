@@ -12,6 +12,7 @@ const Login = () => {
   // for ref to input element
   const email = useRef(null);
   const pswrd = useRef(null);
+  const re_pswrd = useRef(null);
 
   // to toggle btween sign-in sign-up
   const [already_user, set_already_user] = useState(true);
@@ -23,9 +24,23 @@ const Login = () => {
   const [err_msg, set_err_msg] = useState(null);
   // validate inputs
   const validateInput = () => {
-    const res = Validate(email.current.value, pswrd.current.value);
-    // console.log(email.current.value + " : " + pswrd.current.value + " = " + res);
+    const res = Validate(
+      email.current.value,
+      pswrd.current.value,
+      re_pswrd.current.value
+    );
+
     set_err_msg(res);
+
+    console.log(
+      email.current.value +
+        " : " +
+        pswrd.current.value +
+        " : " +
+        re_pswrd.current.value +
+        " = " +
+        err_msg
+    );
 
     if (err_msg === null) {
       // --- if NO_ERR, proceed to sign-in/sign-up
@@ -63,7 +78,7 @@ const Login = () => {
             set_err_msg(errorCode + " : " + errorMessage);
           });
       }
-    }
+    } else return;
   };
 
   return (
@@ -97,6 +112,7 @@ const Login = () => {
           ""
         ) : (
           <input
+            ref={re_pswrd}
             type="password"
             className="border p-2 my-4 w-10/12"
             placeholder="Re-enter Password"
