@@ -17,7 +17,7 @@ const MoviesListSlider = (props) => {
                     {
                         props.areMovies
                             ? props.movies?.map((mov) => <MovieCard movie={mov} />)
-                            : props.movies?.map((mov) => <TvShowCard movie={mov} />)
+                            : props.movies?.map((mov) => <TvShowCard show={mov} />)
                     }
                 </div>
             </div>

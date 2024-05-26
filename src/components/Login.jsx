@@ -81,13 +81,15 @@ const Login = () => {
   return (
     <div
       style={{
-        backgroundImage: "url(../netflix_bg.jpeg)",
+        backgroundImage:
+          "url(../netflix_bg.jpeg), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)",
+        backgroundBlendMode: "overlay",
         padding: "3rem 0 10rem 0",
       }}
     >
       <Header />
       <form
-        className="bg-black bg-opacity-80 flex flex-col w-4/12 mx-auto p-12 mt-20"
+        className="bg-black bg-opacity-70 flex flex-col w-4/12 mx-auto p-12 mt-20"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="text-white">

@@ -7,3 +7,6 @@ export const api_header_options = {
 };
 
 export const movieCardImg = "https://image.tmdb.org/t/p/original/"
+
+
+export const API_fetchUserDetails = "https://api.themoviedb.org/3/account/"

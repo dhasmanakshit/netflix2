@@ -26,7 +26,7 @@ const Trailer = (props) => {
     return (
         <div className='relative'>
             <div className='trailer_video w-full overflow-hidden pointer-events-none'>
-                <iframe src={"https://www.youtube.com/embed/" + trailer?.key + "?autoplay=1&mute=1&controls=0&autohide=1&showinfo=0"}
+                <iframe src={"https://www.youtube.com/embed/" + trailer?.key + "?autoplay=1&mute=1&controls=0&autohide=1&showinfo=0&loop=1"}
                     className='w-screen aspect-video'></iframe>
             </div>
             <div className='absolute z-1 top-0 pb-32 pl-10 bg-gradient-to-r from-black w-1/2 h-full flex flex-col pt-40'>

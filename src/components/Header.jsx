@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // to navigate to diff url from app_code
 import { useNavigate } from "react-router-dom";
 // for auth
@@ -32,6 +32,15 @@ const Header = () => {
     });
   }, []);
 
+  const [hiddenornot, set_hiddenornot] = useState("hidden");
+  const expandOptions = () => {
+    hiddenornot ? set_hiddenornot("") : set_hiddenornot("hidden");
+  };
+
+  const openUserPage = () => {
+    navigate("/user");
+  };
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -45,23 +54,40 @@ const Header = () => {
   };
   return (
     <div className="flex justify-between">
-      <div className="logo w-44 ml-7">
+      <div className="logo w-44 ml-7 ">
         <img src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" />
       </div>
 
       {/* render only if user_from_redux is not null */}
       {user ? (
-        <div className="flex">
-          <img
-            src="../user_icon.jpg"
-            className="w-10 rounded-full ml-auto my-auto"
-          />
-          <button
-            onClick={handleSignOut}
-            className="bg-red-500 text-white font-bold text-xl mx-5 my-auto p-2 rounded-lg"
+        <div
+          className="mt-10 mr-10 relative cursor-pointer"
+          onClick={expandOptions}
+        >
+          <img src="../user_icon.jpg" className="w-10 ml-auto my-auto" />
+
+          <div
+            className={"absolute z-20 top-12 right-0 " + hiddenornot}
+            id="abc"
           >
-            Sign Out
-          </button>
+            <ul className=" text-white bg-white bg-opacity-20 font-bold text-lg rounded-lg flex flex-col">
+              <li
+                className="rounded-lg text-center p-2 hover:bg-red-600 hover:bg-opacity-80"
+                onClick={openUserPage}
+              >
+                {user.email}
+              </li>
+              <li className="rounded-lg text-center p-2 hover:bg-red-600 hover:bg-opacity-80 ">
+                Other Users
+              </li>
+              <li
+                className="rounded-lg text-center p-2 hover:bg-red-600 hover:bg-opacity-80 "
+                onClick={handleSignOut}
+              >
+                Sign Out
+              </li>
+            </ul>
+          </div>
         </div>
       ) : (
         ""
