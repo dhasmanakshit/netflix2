@@ -7,6 +7,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 // for access to redux's slice's reducer fucntion
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
+import Search from "./Search";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -54,9 +55,11 @@ const Header = () => {
   };
   return (
     <div className="flex justify-between">
-      <div className="logo w-44 ml-7 ">
+      <div className="logo w-44 ml-7 mt-5">
         <img src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" />
       </div>
+
+      <Search />
 
       {/* render only if user_from_redux is not null */}
       {user ? (

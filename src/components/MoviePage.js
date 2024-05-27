@@ -31,7 +31,7 @@ const MoviePage = () => {
                 <div className='absolute top-0 w-full px-20 '>
                     <button onClick={goback} className='bg-red-500 text-white rounded-lg px-3 py-1 mt-10'>⇽ Back</button>
 
-                    <div className='mt-20 flex items-center'>
+                    <div className='mt-10 flex items-center'>
                         <div className=''>
                             <img src={movieCardImg + movieDetails.poster_path} className='rounded-xl bordered border-2 border-white w-40' />
                         </div>
