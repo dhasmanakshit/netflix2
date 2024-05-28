@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { api_header_options } from '../utils/constants'
+import { API_fetchMovieDetails, YoutubeIframe, api_header_options, youtubeEmbed, youtubeEmbedControls } from '../utils/constants'
 
 const Trailer = (props) => {
-    console.log(props.movie) // fetch trsiler for this id
+    // console.log(props.movie) // fetch trsiler for this id
 
     const [moreinfo, set_moreinfo] = useState(false)
     const [trailer, set_trailer] = useState()
 
     // we can do this in custom_hook aswell, & store the trailer in slice
     const fetchMovieTrailer = async () => {
-        const response = await fetch('https://api.themoviedb.org/3/movie/' + props.movie.id + '/videos', api_header_options)
+        const response = await fetch(API_fetchMovieDetails + props.movie.id + '/videos', api_header_options)
         const json = await response.json()
 
-        console.log('all videos', json)
+        // console.log('all videos', json)
         const trailers = json?.results.filter(mov => mov.type === "Trailer")
-        console.log('trailers', trailers)
+        // console.log('trailers', trailers)
         set_trailer(trailers[0])
-        console.log('random selected trailer', trailer)
+        // console.log('random selected trailer', trailer)
     }
 
     useEffect(() => {
@@ -26,8 +26,8 @@ const Trailer = (props) => {
     return (
         <div className='relative'>
             <div className='trailer_video w-full overflow-hidden pointer-events-none'>
-                <iframe src={"https://www.youtube.com/embed/" + trailer?.key + "?autoplay=1&mute=1&controls=0&autohide=1&showinfo=0&loop=1"}
-                    className='w-screen aspect-video'></iframe>
+                <iframe title={trailer?.key} className='w-screen aspect-video'
+                    src={youtubeEmbed + trailer?.key + youtubeEmbedControls}></iframe>
             </div>
             <div className='absolute z-1 top-0 pb-32 pl-10 bg-gradient-to-r from-black w-1/2 h-full flex flex-col pt-40'>
                 <h1 className='text-white text-6xl font-bold '>{props.movie.title}</h1>

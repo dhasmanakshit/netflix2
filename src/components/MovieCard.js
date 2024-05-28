@@ -1,7 +1,6 @@
 import React from 'react'
 import { movieCardImg } from "../utils/constants"
 import { useNavigate } from 'react-router-dom';
-import MoviePage from './MoviePage';
 
 const MovieCard = (props) => {
     const navigate = useNavigate();

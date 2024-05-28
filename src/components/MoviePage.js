@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { api_header_options, movieCardImg } from '../utils/constants';
-import Header from './Header';
-import MovieCard from './MovieCard';
+import { API_fetchMovieDetails, api_header_options, movieCardImg } from '../utils/constants';
 
 const MoviePage = () => {
     const navigate = useNavigate();
@@ -12,9 +10,9 @@ const MoviePage = () => {
     // cant use hook cuz we need to send params.id 
     // [react will initialize hook as soon as app start, wont wait to be in this page ]
     const fetchMovieDetail = async (id) => {
-        const res = await fetch("https://api.themoviedb.org/3/movie/" + id, api_header_options)
+        const res = await fetch(API_fetchMovieDetails + id, api_header_options)
         const json = await res.json()
-        console.log(json)
+        // console.log(json)
         set_movieDetails(json)
     }
     useEffect(() => {
@@ -57,7 +55,7 @@ const MoviePage = () => {
                 </div>
 
             </div >
-            : <h2>Loading Details...</h2>
+            : <h2 className='text-center mt-20 text-2xl text-red-500'>Loading Details...</h2>
     )
 }
 export default MoviePage

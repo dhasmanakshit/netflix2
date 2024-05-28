@@ -9,7 +9,7 @@ export const Validate = (email, password, re_password) => {
   if (!valid_password) return "Password must be Valid !!";
 
   // password match or not
-  console.log(password, re_password, password === re_password);
+  // console.log(password, re_password, password === re_password);
 
   if (!(password === re_password)) return "Password dont match";
 

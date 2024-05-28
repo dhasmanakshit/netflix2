@@ -16,8 +16,8 @@ const MoviesListSlider = (props) => {
                 <div className='flex flex-row'>
                     {
                         props.areMovies
-                            ? props.movies?.map((mov) => <MovieCard movie={mov} />)
-                            : props.movies?.map((mov) => <TvShowCard show={mov} />)
+                            ? props.movies?.map((e) => <MovieCard movie={e} key={e.id} />)
+                            : props.movies?.map((e) => <TvShowCard show={e} key={e.id} />)
                     }
                 </div>
             </div>

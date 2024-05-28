@@ -7,7 +7,7 @@ it’ll also have react libs already
 package.josn already has some script (which were used as shortcuts for cmds)
 
 in VS code terminal do
->>> npm run start OR npm start
+? >>> npm run start OR npm start
 both will just run the cmd that is in 'start' keyword in package.json
 
 we'll use tailwind css

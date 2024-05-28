@@ -1,12 +1,7 @@
 import React from "react";
 import Login from "./Login";
 import Browse from "./Browse";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  useParams,
-} from "react-router-dom";
-import Header from "./Header";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MoviePage from "./MoviePage";
 import UserPage from "./UserPage";
 import TvShowPage from "./TvShowPage";

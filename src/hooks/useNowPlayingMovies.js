@@ -1,4 +1,4 @@
-import { api_header_options } from "../utils/constants";
+import { API_moviesNowPlaying, api_header_options } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../utils/movieSlice";
 import { useEffect } from "react";
@@ -13,12 +13,9 @@ const useNowPlayingMovies = () => {
 
     // fetching movies via TMDB api
     const get_now_playing = async () => {
-        const response = await fetch(
-            "https://api.themoviedb.org/3/movie/now_playing",
-            api_header_options
-        );
+        const response = await fetch(API_moviesNowPlaying, api_header_options);
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
 
         // adding them to redux
         dispatch(addNowPlayingMovies(json.results));

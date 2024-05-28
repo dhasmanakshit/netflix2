@@ -17,7 +17,7 @@ const Header = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log("auth stated changed", user);
+      // console.log("auth stated changed", user);
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
@@ -46,7 +46,7 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        console.log("signed out, check in redux tool in browser");
+        // console.log("signed out, check in redux tool in browser");
         // user_remove will done on_auth_change() in <Header/>
       })
       .catch((error) => {
@@ -56,10 +56,10 @@ const Header = () => {
   return (
     <div className="flex justify-between">
       <div className="logo w-44 ml-7 mt-5">
-        <img src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" />
+        <img src="../netflix_logo.png" />
       </div>
 
-      <Search />
+      {user ? <Search /> : ""}
 
       {/* render only if user_from_redux is not null */}
       {user ? (

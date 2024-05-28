@@ -1,4 +1,4 @@
-import { api_header_options } from "../utils/constants";
+import { API_tvShowPopular, api_header_options } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addPopularTV } from "../utils/movieSlice";
 import { useEffect } from "react";
@@ -13,12 +13,9 @@ const usePopularTV = () => {
 
     // fetching movies via TMDB api
     const get_popularTv = async () => {
-        const response = await fetch(
-            "https://api.themoviedb.org/3/tv/popular",
-            api_header_options
-        );
+        const response = await fetch(API_tvShowPopular, api_header_options);
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
 
         // adding them to redux
         dispatch(addPopularTV(json.results));
